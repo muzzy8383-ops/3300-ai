@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>3300 — AI SF Fantasy</title>
+  <meta name="description" content="3300 AI SF 판타지 실사화 영화 세계관 소개" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="logo" href="#hero">3300</a>
+    <button class="menu-btn" aria-label="메뉴 열기" aria-expanded="false">☰</button>
+    <nav class="topnav">
+      <a href="#conflict">사건</a>
+      <a href="#tiers">등급</a>
+      <a href="#concept">기획</a>
+      <a href="#regions">지역</a>
+      <a href="#factions">진영</a>
+      <a href="#characters">인물</a>
+      <a href="#bestiary">도감</a>
+      <a href="#skills">기술</a>
+    </nav>
+  </header>
+
+  <nav class="sidenav" aria-label="섹션 이동">
+    <a href="#hero" data-label="홈"></a>
+    <a href="#conflict" data-label="사건"></a>
+    <a href="#tiers" data-label="등급"></a>
+    <a href="#concept" data-label="기획"></a>
+    <a href="#regions" data-label="지역"></a>
+    <a href="#factions" data-label="진영"></a>
+    <a href="#characters" data-label="인물"></a>
+    <a href="#bestiary" data-label="도감"></a>
+    <a href="#skills" data-label="기술"></a>
+  </nav>
+
+  <main>
+    <section id="hero" class="hero">
+      <div class="hero-grid"></div>
+      <div class="wrap hero-inner">
+        <div class="hero-text reveal">
+          <p class="eyebrow" data-bind="meta.subtitle"></p>
+          <h1 class="hero-title" data-bind="meta.title"></h1>
+          <p class="hero-tagline" data-bind="meta.tagline"></p>
+          <p class="hero-intro" data-bind="meta.intro"></p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#characters">등장인물 보기</a>
+            <a class="btn btn-ghost" href="#regions">세계관 탐색</a>
+          </div>
+        </div>
+        <div class="hero-cards reveal" id="hero-cards"></div>
+      </div>
+    </section>
+
+    <section id="conflict" class="section">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <p class="eyebrow" data-bind="conflict.label"></p>
+          <h2 data-bind="conflict.title"></h2>
+          <p class="sec-desc" data-bind="conflict.description"></p>
+        </div>
+        <div class="bracket reveal" id="bracket"></div>
+      </div>
+    </section>
+
+    <section id="tiers" class="section">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <p class="eyebrow" data-bind="tiers.label"></p>
+          <h2 data-bind="tiers.title"></h2>
+          <p class="sec-desc" data-bind="tiers.description"></p>
+        </div>
+        <div class="tier-list" id="tier-list"></div>
+      </div>
+    </section>
+
+    <section id="concept" class="section section-light">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <p class="eyebrow" data-bind="concept.label"></p>
+          <h2 data-bind="concept.title"></h2>
+          <p class="sec-desc" data-bind="concept.description"></p>
+        </div>
+        <div class="concept-points reveal" id="concept-points"></div>
+      </div>
+    </section>
+
+    <section id="regions" class="section">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <p class="eyebrow">WORLD MAP</p>
+          <h2>주요 지역</h2>
+        </div>
+        <div class="tabs" id="region-tabs" role="tablist"></div>
+        <div class="tab-panel reveal" id="region-panel"></div>
+      </div>
+    </section>
+
+    <section id="factions" class="section">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <p class="eyebrow">FACTIONS</p>
+          <h2>주요 진영</h2>
+        </div>
+        <div class="tabs" id="faction-tabs" role="tablist"></div>
+        <div class="tab-panel reveal" id="faction-panel"></div>
+      </div>
+    </section>
+
+    <section id="characters" class="section">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <p class="eyebrow">CHARACTERS</p>
+          <h2>주요 등장인물</h2>
+        </div>
+        <div class="char-tabs" id="char-tabs" role="tablist"></div>
+        <div class="char-panel reveal" id="char-panel"></div>
+      </div>
+    </section>
+
+    <section id="bestiary" class="section">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <p class="eyebrow">ARCHIVE</p>
+          <h2>적 개체 도감</h2>
+        </div>
+        <div class="beast-grid" id="beast-grid"></div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="wrap">
+        <div class="sec-head reveal">
+          <p class="eyebrow">HIDDEN SKILLS</p>
+          <h2>기술 등급</h2>
+        </div>
+        <div class="skill-stack" id="skill-stack"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <span class="logo">3300</span>
+      <span>© 3300 Project. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

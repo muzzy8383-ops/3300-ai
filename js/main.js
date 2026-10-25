@@ -43,24 +43,16 @@
     })
     .join("");
 
-  // 대진표
-  document.getElementById("bracket").innerHTML = D.conflict.rounds
+  // 연표
+  document.getElementById("timeline").innerHTML = D.conflict.events
     .map(
-      (r) => `<div class="round">
-        <h3 class="round-name">${esc(r.name)}</h3>
-        ${r.matches
-          .map(
-            (m) => `<div class="match">${m
-              .map((id) => {
-                const c = charById[id];
-                return c
-                  ? `<button class="slot" data-goto-char="${esc(c.id)}">${media(c.image, "", "slot-img")}<span>${esc(c.name)}</span></button>`
-                  : `<div class="slot slot-empty"><span>미정</span></div>`;
-              })
-              .join('<span class="vs">VS</span>')}</div>`
-          )
-          .join("")}
-      </div>`
+      (e, i) => `<article class="tl-item reveal" style="--i:${i}">
+        <div class="tl-when">${esc(e.when)}</div>
+        <div class="tl-card">
+          ${e.image ? media(e.image, e.title, "tl-img") : ""}
+          <div class="tl-body"><h3>${esc(e.title)}</h3><p>${esc(e.desc)}</p></div>
+        </div>
+      </article>`
     )
     .join("");
 
@@ -69,9 +61,9 @@
     .map(
       (t, i) => `<div class="tier reveal" style="--i:${i}">
         <div class="tier-head"><span class="tier-name">${esc(t.name)}</span><span class="tier-desc">${esc(t.desc)}</span></div>
-        <div class="tier-members">${
-          t.members.length ? t.members.map(miniChar).join("") : `<p class="empty">아직 등록된 인물이 없습니다.</p>`
-        }</div>
+        ${t.members.length ? `<div class="tier-members">${
+          t.members.map(miniChar).join("")
+        }</div>` : ""}
       </div>`
     )
     .join("");
@@ -100,21 +92,6 @@
     select(0);
     return select;
   }
-
-  setupTabs(
-    document.getElementById("region-tabs"),
-    D.regions,
-    (r) => `<div class="feature">
-      ${media(r.image, r.name + " 이미지", "feature-img")}
-      <div class="feature-body">
-        <p class="eyebrow">${esc(r.en)}</p>
-        <h3>${esc(r.name)}</h3>
-        <p>${nl(r.desc)}</p>
-        <ul class="facts">${r.facts.map((f) => `<li>${esc(f)}</li>`).join("")}</ul>
-      </div>
-    </div>`,
-    document.getElementById("region-panel")
-  );
 
   setupTabs(
     document.getElementById("faction-tabs"),
@@ -146,17 +123,12 @@
           <div class="tags">
             <span class="tag">${esc(c.role)}</span>
             ${f ? `<span class="tag">${esc(f.name)}</span>` : ""}
-            <span class="tag tag-accent">${esc(c.tier)}</span>
+            ${c.tier ? `<span class="tag tag-accent">${esc(c.tier)}</span>` : ""}
           </div>
-          <blockquote>“${esc(c.quote)}”</blockquote>
+          ${c.quote ? `<blockquote>“${esc(c.quote)}”</blockquote>` : ""}
           <p>${nl(c.desc)}</p>
-          <div class="stats">${Object.entries(c.stats)
-            .map(
-              ([k, v]) => `<div class="stat"><span>${esc(k)}</span><div class="bar"><i style="width:${Number(v)}%"></i></div><b>${Number(v)}</b></div>`
-            )
-            .join("")}</div>
-          <p class="sub-label">능력</p>
-          <div class="tags">${c.abilities.map((a) => `<span class="tag tag-line">${esc(a)}</span>`).join("")}</div>
+          ${c.abilities && c.abilities.length ? `<p class="sub-label">능력 · 소지품</p>
+          <div class="tags">${c.abilities.map((x) => `<span class="tag tag-line">${esc(x)}</span>`).join("")}</div>` : ""}
         </div>
       </div>`;
     },
@@ -178,16 +150,14 @@
     )
     .join("");
 
-  // 기술 등급
-  document.getElementById("skill-stack").innerHTML = D.skills
-    .map((s, i) => {
-      const o = charById[s.owner];
-      return `<div class="skill reveal" style="--i:${i}; --w:${100 - i * 8}%">
-        <span class="skill-rank">${esc(s.rank)}</span>
-        <div class="skill-body"><h3>${esc(s.name)}</h3><p>${esc(s.desc)}</p></div>
-        ${o ? `<button class="skill-owner" data-goto-char="${esc(o.id)}">${esc(o.name)}</button>` : ""}
-      </div>`;
-    })
+  // 에피소드
+  document.getElementById("episode-stack").innerHTML = D.episodes
+    .map(
+      (ep, i) => `<div class="skill reveal" style="--i:${i}; --w:${100 - i * 3}%">
+        <span class="skill-rank">${esc(ep.rank)}</span>
+        <div class="skill-body"><h3>${esc(ep.name)}</h3><p>${esc(ep.desc)}</p></div>
+      </div>`
+    )
     .join("");
 
   // 인물 이름을 누르면 인물 섹션으로 이동

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>3300 — AI SF Fantasy</title>
-  <meta name="description" content="3300 AI SF 판타지 실사화 영화 세계관 소개" />
+  <title>3300 AI — 세계관 소개</title>
+  <meta name="description" content="3300 AI SF 판타지 실사화 영화 세계관 소개: 사건, 던전, 길드, 인물, 도감, 에피소드" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600;900&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet" />
@@ -12,30 +12,28 @@
 </head>
 <body>
   <header class="topbar">
-    <a class="logo" href="#hero">3300</a>
+    <a class="logo" href="#hero">3300 AI</a>
     <button class="menu-btn" aria-label="메뉴 열기" aria-expanded="false">☰</button>
     <nav class="topnav">
-      <a href="#conflict">사건</a>
-      <a href="#tiers">등급</a>
-      <a href="#concept">기획</a>
-      <a href="#regions">지역</a>
-      <a href="#factions">진영</a>
+      <a href="#conflict">연표</a>
+      <a href="#tiers">던전</a>
+      <a href="#concept">법칙</a>
+      <a href="#factions">길드</a>
       <a href="#characters">인물</a>
       <a href="#bestiary">도감</a>
-      <a href="#skills">기술</a>
+      <a href="#episodes">에피소드</a>
     </nav>
   </header>
 
   <nav class="sidenav" aria-label="섹션 이동">
     <a href="#hero" data-label="홈"></a>
-    <a href="#conflict" data-label="사건"></a>
-    <a href="#tiers" data-label="등급"></a>
-    <a href="#concept" data-label="기획"></a>
-    <a href="#regions" data-label="지역"></a>
-    <a href="#factions" data-label="진영"></a>
+    <a href="#conflict" data-label="연표"></a>
+    <a href="#tiers" data-label="던전"></a>
+    <a href="#concept" data-label="법칙"></a>
+    <a href="#factions" data-label="길드"></a>
     <a href="#characters" data-label="인물"></a>
     <a href="#bestiary" data-label="도감"></a>
-    <a href="#skills" data-label="기술"></a>
+    <a href="#episodes" data-label="에피소드"></a>
   </nav>
 
   <main>
@@ -49,7 +47,7 @@
           <p class="hero-intro" data-bind="meta.intro"></p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#characters">등장인물 보기</a>
-            <a class="btn btn-ghost" href="#regions">세계관 탐색</a>
+            <a class="btn btn-ghost" href="#conflict">세계관 연표</a>
           </div>
         </div>
         <div class="hero-cards reveal" id="hero-cards"></div>
@@ -63,7 +61,7 @@
           <h2 data-bind="conflict.title"></h2>
           <p class="sec-desc" data-bind="conflict.description"></p>
         </div>
-        <div class="bracket reveal" id="bracket"></div>
+        <div class="timeline" id="timeline"></div>
       </div>
     </section>
 
@@ -89,22 +87,11 @@
       </div>
     </section>
 
-    <section id="regions" class="section">
-      <div class="wrap">
-        <div class="sec-head reveal">
-          <p class="eyebrow">WORLD MAP</p>
-          <h2>주요 지역</h2>
-        </div>
-        <div class="tabs" id="region-tabs" role="tablist"></div>
-        <div class="tab-panel reveal" id="region-panel"></div>
-      </div>
-    </section>
-
     <section id="factions" class="section">
       <div class="wrap">
         <div class="sec-head reveal">
-          <p class="eyebrow">FACTIONS</p>
-          <h2>주요 진영</h2>
+          <p class="eyebrow">GUILDS</p>
+          <h2>길드</h2>
         </div>
         <div class="tabs" id="faction-tabs" role="tablist"></div>
         <div class="tab-panel reveal" id="faction-panel"></div>
@@ -126,27 +113,27 @@
       <div class="wrap">
         <div class="sec-head reveal">
           <p class="eyebrow">ARCHIVE</p>
-          <h2>적 개체 도감</h2>
+          <h2>몬스터 · 아이템 도감</h2>
         </div>
         <div class="beast-grid" id="beast-grid"></div>
       </div>
     </section>
 
-    <section id="skills" class="section">
+    <section id="episodes" class="section">
       <div class="wrap">
         <div class="sec-head reveal">
-          <p class="eyebrow">HIDDEN SKILLS</p>
-          <h2>기술 등급</h2>
+          <p class="eyebrow">EPISODES</p>
+          <h2>에피소드</h2>
         </div>
-        <div class="skill-stack" id="skill-stack"></div>
+        <div class="skill-stack" id="episode-stack"></div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
     <div class="wrap">
-      <span class="logo">3300</span>
-      <span>© 3300 Project. All rights reserved.</span>
+      <span class="logo">3300 AI</span>
+      <span>© 3300 AI Project. All rights reserved.</span>
     </div>
   </footer>
 

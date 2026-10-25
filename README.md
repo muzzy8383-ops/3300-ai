@@ -22,4 +22,4 @@
 
 1. 저장소 **Settings → Pages**로 이동합니다.
 2. **Source**를 `Deploy from a branch`로, 브랜치는 이 사이트가 있는 브랜치, 폴더는 `/ (root)`로 정하고 저장합니다.
-3. 1~2분 뒤 `https://muzzy8383-ops.github.io/desktop-tutorial/`에서 확인할 수 있습니다.
+3. 1~2분 뒤 `https://muzzy8383-ops.github.io/3300-ai/`에서 확인할 수 있습니다.
